@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+        <title>BlageSim</title>
+    </head>
+    <body>
+        <div class="side-text">
+            <h1 class="left">BlageSim <span class="question">?</span> <span class="lang" onclick="location.href = '/en';">EN</span></h1>
+        </div>
+        <div class="container">
+            <div class="latex">   
+                <div class="latex-input">
+                    <div class="latex-control">
+                        <button data-key="/" title="shift + 7">\[\frac{x}{y}\]</button>
+                        <button data-key="'" title="shift + 2">\[x^{y}\]</button>
+                        <button data-key="P" title="shift + p">\[\pi\]</button>
+                    </div>
+                    <textarea placeholder="Terimler neye benziyor? (Terim numarasını 'x' ile gösterin.)"></textarea>
+                    <span class="error"><i class="fa fa-times"></i> Girdi anlaşılamadı. <button id="input-help">?</button></span>
+                </div>
+                <div class="latex-display">\[x\]</div>
+                <div class="settings">
+                    <label>Hazır seriler: <select id="built-in">
+                        <option value="none" selected>Hiçbiri</option>
+                    </select></label>
+                    <label>Adım süresi (ms): <input type="number" id="delay" value="20"></label>
+                    <label>x'in değişim miktarı (adım başına): <input type="number" id="change" value="1"></label>
+                    <label>Virgülden sonraki basamak sayısı: <input type="range" id="fixed" min="0" max="20"> | Otomatik <input type="checkbox" id="max" checked></label>
+                </div>
+            </div>
+            <div class="result">
+                <div class="value">0</div>
+                <p>x'in son değeri: <span class="step">0</span></p>
+            </div>
+            <div class="control">
+                <button id="run" disabled>Başla <i class="fa fa-play"></i></button>
+                <button id="pause" disabled>Dur / Devam Et <i class="fa fa-pause"></i></button>
+                <button id="reset" disabled>Sıfırla <i class="fa fa-refresh"></i></button>
+                <button id="tools" disabled>Araçlar <i class="fa fa-tools"></i></button>
+            </div>
+        </div>
+    </body>
+</html>
+<script src="script.js" type="module"></script>
+<script src="parseLatex.js"></script>
+<script src="parseMaths.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://kit.fontawesome.com/d5360bfebf.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
